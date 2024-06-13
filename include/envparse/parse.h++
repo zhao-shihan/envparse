@@ -34,7 +34,7 @@ auto parse_impl(std::string& str, std::size_t pos = 0) -> std::string&;
 /// must be surrounded by "${}", $ENV syntax is not supported.
 /// @exception std::runtime_error if anything unexcepted happens.
 template<not_set_option Option = not_set_option::exception>
-auto parse(std::string str) -> std::string {
+[[nodiscard]] auto parse(std::string str) -> std::string {
     return std::move(internal::parse_impl<Option>(str));
 }
 
